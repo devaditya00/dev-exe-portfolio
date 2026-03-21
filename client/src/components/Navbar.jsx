@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import useAuthStore from '../store/authStore.js'
+import LiveCounter from './LiveCounter.jsx'
 
 const Navbar = () => {
   const [scrolled, setScrolled] = useState(false)
@@ -75,6 +76,7 @@ const Navbar = () => {
           </li>
         )}
       </ul>
+      <LiveCounter />
     </nav>
   )
 }
