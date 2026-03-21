@@ -5,6 +5,8 @@ import isAdmin from '../middleware/isAdmin.js';
 
 const router = express.Router();
 
+
+router.get('/all', protect, isAdmin, commentController.getAllComments);
 router.get('/', commentController.getComments);
 router.post('/', commentController.submitComment);
 router.patch('/:id/approve', protect, isAdmin, commentController.approveComment);

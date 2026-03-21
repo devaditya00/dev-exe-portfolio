@@ -1,6 +1,7 @@
 import asyncHandler from '../utils/asyncHandler.js';
 import { ApiResponse } from '../utils/ApiResponse.js';
 import * as commentService from '../services/comment.service.js';
+import Comment from '../models/Comment.model.js';
 
 export const getComments = asyncHandler(async (req, res) => {
   const comments = await commentService.getApprovedComments();
@@ -20,4 +21,8 @@ export const approveComment = asyncHandler(async (req, res) => {
 export const deleteComment = asyncHandler(async (req, res) => {
   await commentService.deleteComment(req.params.id);
   res.json(ApiResponse.success(null, 'Comment deleted'));
+});
+export const getAllComments = asyncHandler(async (req, res) => {
+  const comments = await Comment.find().sort('-createdAt').lean();
+  res.json(ApiResponse.success(comments, 'All comments fetched'));
 });

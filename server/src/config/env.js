@@ -24,5 +24,9 @@ export const ENV = {
   jwtRefreshSecret: process.env.JWT_REFRESH_SECRET,
   jwtRefreshExpire: process.env.JWT_REFRESH_EXPIRE || '30d',
   clientUrl: process.env.CLIENT_URL || 'http://localhost:5173',
+  emailUser: process.env.EMAIL_USER,
+  emailPass: process.env.EMAIL_PASS,
+  emailTo: process.env.EMAIL_TO,
 }
+
 

@@ -1,0 +1,51 @@
+version: '3.9'
+
+services:
+  mongo:
+    image: mongo:7
+    container_name: devexe-mongo
+    ports:
+      - '27017:27017'
+    volumes:
+      - mongo_data:/data/db
+    networks:
+      - devexe-network
+
+  server:
+    build: ./server
+    container_name: devexe-server
+    ports:
+      - '5000:5000'
+    env_file:
+      - ./server/.env
+    depends_on:
+      - mongo
+    volumes:
+      - ./server:/app
+      - /app/node_modules
+    networks:
+      - devexe-network
+    restart: unless-stopped
+
+  client:
+    build: ./client
+    container_name: devexe-client
+    ports:
+      - '5173:5173'
+    env_file:
+      - ./client/.env
+    depends_on:
+      - server
+    volumes:
+      - ./client:/app
+      - /app/node_modules
+    networks:
+      - devexe-network
+    restart: unless-stopped
+
+volumes:
+  mongo_data:
+
+networks:
+  devexe-network:
+    driver: bridge

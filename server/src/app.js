@@ -9,6 +9,7 @@ import authRoutes from './routes/auth.routes.js';
 import reviewRoutes from './routes/review.routes.js';
 import commentRoutes from './routes/comment.routes.js';
 import contactRoutes from './routes/contact.routes.js';
+import projectRoutes from './routes/project.routes.js';
 
 const app = express();
 
@@ -44,6 +45,7 @@ app.use('/api/auth', authRoutes);
 app.use('/api/reviews', reviewRoutes);
 app.use('/api/comments', commentRoutes);
 app.use('/api/contact', contactRoutes);
+app.use('/api/projects', projectRoutes);
 
 
 // Global error handler — must be last

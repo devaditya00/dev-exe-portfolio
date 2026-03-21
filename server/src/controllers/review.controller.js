@@ -1,6 +1,7 @@
 import asyncHandler from '../utils/asyncHandler.js';
 import { ApiResponse } from '../utils/ApiResponse.js';
 import * as reviewService from '../services/review.service.js';
+import Review from '../models/Review.model.js';
 
 export const getReviews = asyncHandler(async (req, res) => {
   const reviews = await reviewService.getApprovedReviews();
@@ -20,4 +21,8 @@ export const approveReview = asyncHandler(async (req, res) => {
 export const deleteReview = asyncHandler(async (req, res) => {
   await reviewService.deleteReview(req.params.id);
   res.json(ApiResponse.success(null, 'Review deleted'));
+});
+export const getAllReviews = asyncHandler(async (req, res) => {
+  const reviews = await Review.find().sort('-createdAt').lean();
+  res.json(ApiResponse.success(reviews, 'All reviews fetched'));
 });

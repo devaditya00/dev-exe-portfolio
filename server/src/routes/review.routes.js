@@ -5,6 +5,7 @@ import isAdmin from '../middleware/isAdmin.js';
 
 const router = express.Router();
 
+router.get('/all', protect, isAdmin, reviewController.getAllReviews);
 router.get('/', reviewController.getReviews);
 router.post('/', reviewController.submitReview);
 router.patch('/:id/approve', protect, isAdmin, reviewController.approveReview);
