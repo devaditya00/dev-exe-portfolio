@@ -20,16 +20,8 @@ jobs:
           node-version: '20'
 
       - name: Install server dependencies
-        run: |
-          cd server
-          npm install
-
-      - name: Check server modules
-        run: |
-          cd server
-          node --input-type=module <<'EOF'
-          console.log('✅ Server modules OK');
-          EOF
+        working-directory: server
+        run: npm install
 
   client-check:
     name: Client CI
@@ -44,14 +36,12 @@ jobs:
           node-version: '20'
 
       - name: Install client dependencies
-        run: |
-          cd client
-          npm install
+        working-directory: client
+        run: npm install
 
       - name: Build client
-        run: |
-          cd client
-          npm run build
+        working-directory: client
+        run: npm run build
         env:
           VITE_API_URL: http://localhost:5000/api
           VITE_SOCKET_URL: http://localhost:5000
