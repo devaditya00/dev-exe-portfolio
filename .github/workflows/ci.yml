@@ -1,25 +1,91 @@
-name: CI
+name: CI/CD Pipeline
 
 on:
   push:
     branches: [main]
+  pull_request:
+    branches: [main]
 
 jobs:
-  build:
+  # ─────────────────────────────────────
+  # JOB 1: Check Backend
+  # ─────────────────────────────────────
+  server-ci:
+    name: Server CI
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      
-      - name: Use Node.js
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
           node-version: '20'
-          
-      - name: Install and build client
+
+      - name: Install server dependencies
+        run: npm ci --ignore-scripts
+        working-directory: ./server
+
+      - name: Verify server entry point exists
         run: |
-          cd client
-          npm ci --ignore-scripts
-          npm run build
+          if [ -f "./server/server.js" ]; then
+            echo "server.js found"
+          else
+            echo "server.js not found"
+            exit 1
+          fi
+
+  # ─────────────────────────────────────
+  # JOB 2: Check Frontend
+  # ─────────────────────────────────────
+  client-ci:
+    name: Client CI
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install client dependencies
+        run: npm ci --ignore-scripts
+        working-directory: ./client
+
+      - name: Build client
+        run: npm run build
+        working-directory: ./client
         env:
           VITE_API_URL: http://localhost:5000/api
           VITE_SOCKET_URL: http://localhost:5000
+
+      - name: Verify build output exists
+        run: |
+          if [ -d "./client/dist" ]; then
+            echo "Build output exists"
+          else
+            echo "Build failed — dist folder missing"
+            exit 1
+          fi
+
+  # ─────────────────────────────────────
+  # JOB 3: Deploy (only on main push)
+  # ─────────────────────────────────────
+  deploy-check:
+    name: Deploy Ready Check
+    runs-on: ubuntu-latest
+    needs: [server-ci, client-ci]
+    if: github.ref == 'refs/heads/main' && github.event_name == 'push'
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: All checks passed
+        run: |
+          echo "Server CI passed"
+          echo "Client CI passed"
+          echo "Ready to deploy!"
+          echo "Frontend → Deploy to Vercel"
+          echo "Backend  → Deploy to Render"
