@@ -6,6 +6,9 @@ import rateLimit from 'express-rate-limit';
 import { ENV } from './config/env.js';
 import errorHandler from './middleware/errorHandler.js';
 import authRoutes from './routes/auth.routes.js';
+import reviewRoutes from './routes/review.routes.js';
+import commentRoutes from './routes/comment.routes.js';
+import contactRoutes from './routes/contact.routes.js';
 
 const app = express();
 
@@ -38,6 +41,10 @@ app.get('/api/health', (req, res) => {
 
 // Routes
 app.use('/api/auth', authRoutes);
+app.use('/api/reviews', reviewRoutes);
+app.use('/api/comments', commentRoutes);
+app.use('/api/contact', contactRoutes);
+
 
 // Global error handler — must be last
 app.use(errorHandler);
