@@ -11,37 +11,33 @@ jobs:
     name: Server CI
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
+      - uses: actions/checkout@v4
 
-      - name: Setup Node.js
-        uses: actions/setup-node@v4
+      - uses: actions/setup-node@v4
         with:
-          node-version: '20'
+          node-version: '22'
 
-      - name: Install server dependencies
-        working-directory: server
+      - name: Install server deps
         run: npm install
+        working-directory: ./server
 
   client-check:
     name: Client CI
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
+      - uses: actions/checkout@v4
 
-      - name: Setup Node.js
-        uses: actions/setup-node@v4
+      - uses: actions/setup-node@v4
         with:
-          node-version: '20'
+          node-version: '22'
 
-      - name: Install client dependencies
-        working-directory: client
+      - name: Install client deps
         run: npm install
+        working-directory: ./client
 
       - name: Build client
-        working-directory: client
         run: npm run build
+        working-directory: ./client
         env:
           VITE_API_URL: http://localhost:5000/api
           VITE_SOCKET_URL: http://localhost:5000
