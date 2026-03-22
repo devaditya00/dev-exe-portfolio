@@ -11,8 +11,6 @@
     "lint": "npm run lint --workspace=client && npm run lint --workspace=server"
   },
   "devDependencies": {
-    "concurrently": "^8.2.0",
-    "husky": "^9.0.0",
-    "lint-staged": "^15.0.0"
+    "concurrently": "^8.2.0"
   }
 }
