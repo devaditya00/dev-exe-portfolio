@@ -4,7 +4,11 @@ import { ENV } from './env.js';
 const initSocket = (server) => {
   const io = new Server(server, {
     cors: {
-      origin: ENV.clientUrl,
+    origin: [
+      ENV.clientUrl,
+      'https://dev-exe-portfolio.vercel.app',
+      'http://localhost:5173',
+    ],
       methods: ['GET', 'POST'],
       credentials: true,
     },
