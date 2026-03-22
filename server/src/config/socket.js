@@ -6,7 +6,7 @@ const initSocket = (server) => {
     cors: {
     origin: [
       ENV.clientUrl,
-      'https://dev-exe-portfolio.vercel.app',
+      'https://dev-exe-portfolio-client.vercel.app',
       'http://localhost:5173',
     ],
       methods: ['GET', 'POST'],

@@ -19,7 +19,7 @@ app.set('trust proxy', 1);
 app.use(helmet());
 app.use(cors({
  origin: [ENV.clientUrl,
-    'https://dev-exe-portfolio.vercel.app',
+    'https://dev-exe-portfolio-client.vercel.app',
     'http://localhost:5173',
   ],
   credentials: true,
