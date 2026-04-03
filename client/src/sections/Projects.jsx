@@ -23,8 +23,8 @@ const ProjectCard = ({ project, index }) => {
         transition: 'transform 0.3s, box-shadow 0.3s, border-color 0.3s',
       }}
       onMouseEnter={e => {
-        e.currentTarget.style.transform = 'translateY(-8px)'
-        e.currentTarget.style.boxShadow = '0 30px 80px rgba(0,245,255,0.12)'
+        e.currentTarget.style.transform = 'translateY(-6px)'
+        e.currentTarget.style.boxShadow = '0 20px 50px rgba(0,245,255,0.1)'
         e.currentTarget.style.borderColor = 'rgba(0,245,255,0.3)'
       }}
       onMouseLeave={e => {
@@ -34,21 +34,23 @@ const ProjectCard = ({ project, index }) => {
       }}>
 
       <div style={{
-        padding: '1.5rem 1.5rem 0',
+        padding: '1rem 1rem 0',
         display: 'flex',
         justifyContent: 'space-between',
         alignItems: 'flex-start',
+        flexWrap: 'wrap',
+        gap: '0.5rem',
       }}>
         <span style={{
           fontFamily: 'Orbitron, monospace',
-          fontSize: '0.7rem',
+          fontSize: '0.65rem',
           color: 'var(--cyan)',
           opacity: 0.5,
         }}>{String(index + 1).padStart(2, '0')}</span>
-        <div style={{ display: 'flex', gap: '10px' }}>
+        <div style={{ display: 'flex', gap: '6px' }}>
           {project.githubUrl && (
             <a href={project.githubUrl} target="_blank" rel="noreferrer" style={{
-              width: '32px', height: '32px',
+              width: '28px', height: '28px',
               border: '1px solid var(--border)',
               borderRadius: '4px',
               display: 'flex',
@@ -56,13 +58,12 @@ const ProjectCard = ({ project, index }) => {
               justifyContent: 'center',
               color: 'var(--muted)',
               textDecoration: 'none',
-              fontSize: '0.75rem',
-              fontFamily: 'Space Mono, monospace',
+              fontSize: '0.7rem',
             }}>GH</a>
           )}
           {project.liveUrl && (
             <a href={project.liveUrl} target="_blank" rel="noreferrer" style={{
-              width: '32px', height: '32px',
+              width: '28px', height: '28px',
               border: '1px solid var(--border)',
               borderRadius: '4px',
               display: 'flex',
@@ -70,32 +71,32 @@ const ProjectCard = ({ project, index }) => {
               justifyContent: 'center',
               color: 'var(--muted)',
               textDecoration: 'none',
-              fontSize: '0.75rem',
+              fontSize: '0.7rem',
             }}>↗</a>
           )}
         </div>
       </div>
 
-      <div style={{ padding: '1.2rem 1.5rem 1.5rem' }}>
+      <div style={{ padding: '1rem' }}>
         <h3 style={{
           fontFamily: 'Orbitron, monospace',
           fontWeight: 700,
-          fontSize: '1.1rem',
+          fontSize: '1rem',
           color: '#fff',
-          marginBottom: '0.6rem',
+          marginBottom: '0.5rem',
         }}>{project.title}</h3>
         <p style={{
           color: '#64748b',
-          fontSize: '0.95rem',
+          fontSize: '0.9rem',
           lineHeight: 1.6,
-          marginBottom: '1.2rem',
+          marginBottom: '1rem',
         }}>{project.description}</p>
         <div style={{ display: 'flex', gap: '6px', flexWrap: 'wrap' }}>
           {project.techStack?.map((tech) => (
             <span key={tech} style={{
               fontFamily: 'Space Mono, monospace',
-              fontSize: '0.65rem',
-              padding: '4px 10px',
+              fontSize: '0.6rem',
+              padding: '3px 8px',
               borderRadius: '100px',
               background: 'rgba(0,245,255,0.08)',
               color: 'var(--cyan)',
@@ -116,7 +117,7 @@ const Projects = () => {
 
   return (
     <section id="projects" ref={ref} style={{
-      padding: '120px 5%',
+      padding: '90px 1rem',
       maxWidth: '1200px',
       margin: '0 auto',
     }}>
@@ -124,25 +125,25 @@ const Projects = () => {
         initial={{ opacity: 0, y: 30 }}
         animate={isInView ? { opacity: 1, y: 0 } : {}}
         transition={{ duration: 0.6 }}
-        style={{ textAlign: 'center', marginBottom: '4rem' }}>
+        style={{ textAlign: 'center', marginBottom: '2.5rem' }}>
         <span style={{
           fontFamily: 'Space Mono, monospace',
           fontSize: '0.7rem',
           color: 'var(--cyan)',
-          letterSpacing: '0.3em',
+          letterSpacing: '0.2em',
           textTransform: 'uppercase',
           display: 'block',
-          marginBottom: '1rem',
+          marginBottom: '0.8rem',
         }}>// What I've Built</span>
         <h2 style={{
           fontFamily: 'Orbitron, monospace',
           fontWeight: 700,
-          fontSize: 'clamp(1.8rem, 4vw, 3rem)',
+          fontSize: 'clamp(1.6rem, 5vw, 2.5rem)',
           color: '#fff',
-          marginBottom: '1rem',
+          marginBottom: '0.8rem',
         }}>Projects</h2>
         <div style={{
-          width: '80px', height: '2px',
+          width: '60px', height: '2px',
           background: 'linear-gradient(90deg, transparent, var(--cyan), transparent)',
           margin: '0 auto',
         }} />
@@ -159,8 +160,8 @@ const Projects = () => {
       ) : (
         <div style={{
           display: 'grid',
-          gridTemplateColumns: 'repeat(auto-fill, minmax(340px, 1fr))',
-          gap: '1.5rem',
+          gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))',
+          gap: '1rem',
         }}>
           {projects.map((project, i) => (
             <ProjectCard key={project._id} project={project} index={i} />

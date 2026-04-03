@@ -18,8 +18,8 @@ const Navbar = () => {
       position: 'fixed',
       top: 0, left: 0, right: 0,
       zIndex: 100,
-      padding: '0 5%',
-      height: '70px',
+      padding: '0 1rem',
+      height: '60px',
       display: 'flex',
       alignItems: 'center',
       justifyContent: 'space-between',
@@ -27,22 +27,27 @@ const Navbar = () => {
       backdropFilter: scrolled ? 'blur(20px)' : 'none',
       borderBottom: scrolled ? '1px solid var(--border)' : 'none',
       transition: 'all 0.3s',
+      flexWrap: 'wrap',
+      gap: '0.5rem',
     }}>
       <Link to="/" style={{
         fontFamily: 'Orbitron, monospace',
         fontWeight: 900,
-        fontSize: '1.3rem',
+        fontSize: '1.1rem',
         color: 'var(--cyan)',
         textDecoration: 'none',
         textShadow: '0 0 20px var(--cyan)',
+        whiteSpace: 'nowrap',
       }}>
         DEV.EXE
       </Link>
 
       <ul style={{
         display: 'flex',
-        gap: '2.5rem',
+        gap: '1rem',
         listStyle: 'none',
+        flexWrap: 'wrap',
+        justifyContent: 'center',
       }}>
         {['About', 'Stack', 'Projects', 'Reviews', 'Contact'].map((item) => (
           <li key={item}>
@@ -50,10 +55,11 @@ const Navbar = () => {
               color: 'var(--muted)',
               textDecoration: 'none',
               fontFamily: 'Space Mono, monospace',
-              fontSize: '0.75rem',
-              letterSpacing: '0.15em',
+              fontSize: '0.7rem',
+              letterSpacing: '0.1em',
               textTransform: 'uppercase',
               transition: 'color 0.2s',
+              whiteSpace: 'nowrap',
             }}
             onMouseEnter={e => e.target.style.color = 'var(--cyan)'}
             onMouseLeave={e => e.target.style.color = 'var(--muted)'}
@@ -68,8 +74,9 @@ const Navbar = () => {
               color: 'var(--cyan)',
               textDecoration: 'none',
               fontFamily: 'Space Mono, monospace',
-              fontSize: '0.75rem',
-              letterSpacing: '0.15em',
+              fontSize: '0.7rem',
+              letterSpacing: '0.1em',
+              whiteSpace: 'nowrap',
             }}>
               Admin
             </Link>

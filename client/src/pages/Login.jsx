@@ -33,12 +33,12 @@ const Login = () => {
       display: 'flex',
       alignItems: 'center',
       justifyContent: 'center',
-      padding: '5%',
+      padding: '1rem',
     }}>
       <div style={{
         width: '100%',
         maxWidth: '420px',
-        padding: '2.5rem',
+        padding: '1.8rem',
         border: '1px solid var(--border)',
         borderRadius: '12px',
         background: 'var(--bg2)',
@@ -55,7 +55,7 @@ const Login = () => {
         <h1 style={{
           fontFamily: 'Orbitron, monospace',
           fontWeight: 700,
-          fontSize: '1.5rem',
+          fontSize: '1.3rem',
           color: 'var(--cyan)',
           marginBottom: '0.5rem',
           textAlign: 'center',
@@ -63,16 +63,16 @@ const Login = () => {
 
         <p style={{
           fontFamily: 'Space Mono, monospace',
-          fontSize: '0.65rem',
+          fontSize: '0.7rem',
           color: 'var(--muted)',
           textAlign: 'center',
-          marginBottom: '2rem',
-          letterSpacing: '0.1em',
+          marginBottom: '1.5rem',
+          letterSpacing: '0.08em',
         }}>DEV.EXE CONTROL PANEL</p>
 
         {error && (
           <div style={{
-            padding: '12px',
+            padding: '10px',
             background: 'rgba(255,107,107,0.08)',
             border: '1px solid rgba(255,107,107,0.2)',
             borderRadius: '6px',
@@ -98,12 +98,12 @@ const Login = () => {
                 background: 'rgba(255,255,255,0.03)',
                 border: '1px solid var(--border)',
                 borderRadius: '6px',
-                padding: '12px 16px',
+                padding: '12px 14px',
                 color: '#e2e8f0',
                 fontFamily: 'Rajdhani, sans-serif',
-                fontSize: '1rem',
+                fontSize: '0.95rem',
                 outline: 'none',
-                marginBottom: '1rem',
+                marginBottom: '0.9rem',
                 display: 'block',
               }}
             />
@@ -115,10 +115,10 @@ const Login = () => {
             style={{
               fontFamily: 'Orbitron, monospace',
               fontWeight: 700,
-              fontSize: '0.75rem',
-              letterSpacing: '0.15em',
+              fontSize: '0.7rem',
+              letterSpacing: '0.1em',
               textTransform: 'uppercase',
-              padding: '14px 32px',
+              padding: '12px 20px',
               background: 'var(--cyan)',
               color: '#000',
               border: 'none',

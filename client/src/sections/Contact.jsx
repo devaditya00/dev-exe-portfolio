@@ -28,55 +28,53 @@ const Contact = () => {
 
   return (
     <section id="contact" ref={ref} style={{
-      padding: '120px 5%',
+      padding: '90px 1rem',
       textAlign: 'center',
     }}>
       <div style={{ maxWidth: '700px', margin: '0 auto' }}>
 
-        {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
-          style={{ marginBottom: '3rem' }}>
+          style={{ marginBottom: '2rem' }}>
           <span style={{
             fontFamily: 'Space Mono, monospace',
             fontSize: '0.7rem',
             color: 'var(--cyan)',
-            letterSpacing: '0.3em',
+            letterSpacing: '0.2em',
             textTransform: 'uppercase',
             display: 'block',
-            marginBottom: '1rem',
+            marginBottom: '0.8rem',
           }}>// Let's Build</span>
           <h2 style={{
             fontFamily: 'Orbitron, monospace',
             fontWeight: 700,
-            fontSize: 'clamp(1.8rem, 4vw, 3rem)',
+            fontSize: 'clamp(1.6rem, 5vw, 2.5rem)',
             color: '#fff',
-            marginBottom: '1rem',
+            marginBottom: '0.8rem',
           }}>Get in Touch</h2>
           <div style={{
-            width: '80px', height: '2px',
+            width: '60px', height: '2px',
             background: 'linear-gradient(90deg, transparent, var(--cyan), transparent)',
-            margin: '0 auto 1.5rem',
+            margin: '0 auto 1rem',
           }} />
           <p style={{
             color: '#64748b',
-            fontSize: '1.1rem',
-            lineHeight: 1.7,
+            fontSize: '0.95rem',
+            lineHeight: 1.6,
           }}>
             Open to freelance projects, collaborations, and full-time
             opportunities. Got an idea? Let's bring it to life.
           </p>
         </motion.div>
 
-        {/* Form */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6, delay: 0.2 }}
           style={{
-            padding: '2.5rem',
+            padding: '1.5rem',
             border: '1px solid var(--border)',
             borderRadius: '12px',
             background: 'var(--bg2)',
@@ -93,13 +91,13 @@ const Contact = () => {
 
           {status === 'success' && (
             <div style={{
-              padding: '12px',
+              padding: '10px',
               background: 'rgba(0,245,255,0.08)',
               border: '1px solid var(--border)',
               borderRadius: '6px',
               color: 'var(--cyan)',
               fontFamily: 'Space Mono, monospace',
-              fontSize: '0.8rem',
+              fontSize: '0.75rem',
               marginBottom: '1rem',
             }}>
               ✅ Message sent! I'll get back to you soon.
@@ -108,13 +106,13 @@ const Contact = () => {
 
           {status === 'error' && (
             <div style={{
-              padding: '12px',
+              padding: '10px',
               background: 'rgba(255,107,107,0.08)',
               border: '1px solid rgba(255,107,107,0.2)',
               borderRadius: '6px',
               color: '#ff6b6b',
               fontFamily: 'Space Mono, monospace',
-              fontSize: '0.8rem',
+              fontSize: '0.75rem',
               marginBottom: '1rem',
             }}>
               ❌ Something went wrong. Try again.
@@ -124,8 +122,8 @@ const Contact = () => {
           <form onSubmit={handleSubmit}>
             <div style={{
               display: 'grid',
-              gridTemplateColumns: '1fr 1fr',
-              gap: '1rem',
+              gridTemplateColumns: '1fr',
+              gap: '0.8rem',
               marginBottom: '1rem',
             }}>
               {['name', 'email'].map((field) => (
@@ -140,10 +138,10 @@ const Contact = () => {
                     background: 'rgba(255,255,255,0.03)',
                     border: '1px solid var(--border)',
                     borderRadius: '6px',
-                    padding: '12px 16px',
+                    padding: '12px 14px',
                     color: '#e2e8f0',
                     fontFamily: 'Rajdhani, sans-serif',
-                    fontSize: '1rem',
+                    fontSize: '0.95rem',
                     outline: 'none',
                     width: '100%',
                   }}
@@ -161,10 +159,10 @@ const Contact = () => {
                 background: 'rgba(255,255,255,0.03)',
                 border: '1px solid var(--border)',
                 borderRadius: '6px',
-                padding: '12px 16px',
+                padding: '12px 14px',
                 color: '#e2e8f0',
                 fontFamily: 'Rajdhani, sans-serif',
-                fontSize: '1rem',
+                fontSize: '0.95rem',
                 outline: 'none',
                 width: '100%',
                 marginBottom: '1rem',
@@ -182,13 +180,13 @@ const Contact = () => {
                 background: 'rgba(255,255,255,0.03)',
                 border: '1px solid var(--border)',
                 borderRadius: '6px',
-                padding: '12px 16px',
+                padding: '12px 14px',
                 color: '#e2e8f0',
                 fontFamily: 'Rajdhani, sans-serif',
-                fontSize: '1rem',
+                fontSize: '0.95rem',
                 outline: 'none',
                 resize: 'vertical',
-                marginBottom: '1.5rem',
+                marginBottom: '1.2rem',
               }}
             />
 
@@ -198,10 +196,10 @@ const Contact = () => {
               style={{
                 fontFamily: 'Orbitron, monospace',
                 fontWeight: 700,
-                fontSize: '0.75rem',
-                letterSpacing: '0.15em',
+                fontSize: '0.7rem',
+                letterSpacing: '0.1em',
                 textTransform: 'uppercase',
-                padding: '14px 32px',
+                padding: '12px 20px',
                 background: 'var(--cyan)',
                 color: '#000',
                 border: 'none',
@@ -216,25 +214,24 @@ const Contact = () => {
           </form>
         </motion.div>
 
-        {/* Social links */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6, delay: 0.4 }}
           style={{
             display: 'flex',
-            gap: '1rem',
+            gap: '0.6rem',
             justifyContent: 'center',
             flexWrap: 'wrap',
-            marginTop: '2rem',
+            marginTop: '1.5rem',
           }}>
           {['GitHub', 'LinkedIn', 'Twitter', 'Resume ↓'].map((link) => (
             <a key={link} href="#" style={{
               fontFamily: 'Space Mono, monospace',
-              fontSize: '0.7rem',
-              letterSpacing: '0.15em',
+              fontSize: '0.65rem',
+              letterSpacing: '0.1em',
               textTransform: 'uppercase',
-              padding: '10px 20px',
+              padding: '8px 14px',
               border: '1px solid var(--border)',
               borderRadius: '4px',
               color: 'var(--muted)',
