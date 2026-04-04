@@ -20,7 +20,7 @@ const Login = () => {
       localStorage.setItem('accessToken', accessToken)
       login(user, accessToken)
       navigate('/admin')
-    } catch (err) {
+    } catch {
       setError('Invalid email or password')
     } finally {
       setLoading(false)
