@@ -6,13 +6,13 @@ const experiences = [
   {
     role: 'Full Stack Developer',
     company: 'Freelance',
-    period: '2023 - Present',
+    period: '2025 - Present',
     desc: 'Building production MERN apps for clients.',
   },
   {
-    role: 'Frontend Developer',
-    company: 'Personal Projects',
-    period: '2022 - 2023',
+    role: 'Tech Core Team Member',
+    Society: 'Society Projects',
+    period: 'Aug 2025 - Present',
     desc: 'Developed React apps with REST API integrations.',
   },
 ]
@@ -22,7 +22,7 @@ const education = [
     degree: 'B.Tech Computer Science',
     school: 'Your University',
     period: '2021 - 2025',
-    desc: 'Data Structures, Algorithms, Web Development.',
+    desc: 'Web Development, Machine Learning, DBMS, Data Structures.',
   },
 ]
 
@@ -68,7 +68,7 @@ const Resume = () => {
           }} />
 
           <button
-            onClick={() => window.open('/resume.pdf')}
+            onClick={() => window.open('/Aditya_Mishra_Resume.pdf')}
             style={{
               fontFamily: 'Orbitron, monospace',
               fontWeight: 700,

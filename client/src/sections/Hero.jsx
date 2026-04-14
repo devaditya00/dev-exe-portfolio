@@ -105,9 +105,8 @@ const Hero = () => {
             maxWidth: '600px',
             margin: '0 auto 3rem',
           }}>
-          I craft high-performance web applications using MongoDB, Express,
-          React, and Node.js — turning complex ideas into clean, scalable
-          digital products.
+          I create fast, scalable applications using React, Node.js, and Machine Learning —  
+focused on solving real problems like safety, automation, and smart systems.
         </motion.p>
 
         {/* CTAs */}

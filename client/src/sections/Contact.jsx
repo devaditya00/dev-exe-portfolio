@@ -3,6 +3,25 @@ import { motion } from 'framer-motion'
 import { useInView } from 'framer-motion'
 import api from '../api/axios.config.js'
 
+const links = [
+  {
+    name: "GitHub",
+    url: "https://github.com/devaditya00"
+  },
+  {
+    name: "LinkedIn",
+    url: "https://linkedin.com/in/adityamishra0712"
+  },
+  {
+    name: "Twitter",
+    url: "https://twitter.com/adityamishra76731"
+  },
+  {
+    name: "Resume ↓",
+    url: "/Aditya_Mishra_Resume.pdf"
+  }
+];
+
 const Contact = () => {
   const ref = useRef(null)
   const isInView = useInView(ref, { once: true, threshold: 0.1 })
@@ -225,30 +244,38 @@ const Contact = () => {
             flexWrap: 'wrap',
             marginTop: '1.5rem',
           }}>
-          {['GitHub', 'LinkedIn', 'Twitter', 'Resume ↓'].map((link) => (
-            <a key={link} href="#" style={{
-              fontFamily: 'Space Mono, monospace',
-              fontSize: '0.65rem',
-              letterSpacing: '0.1em',
-              textTransform: 'uppercase',
-              padding: '8px 14px',
-              border: '1px solid var(--border)',
-              borderRadius: '4px',
-              color: 'var(--muted)',
-              textDecoration: 'none',
-              transition: 'color 0.2s, border-color 0.2s',
-            }}
-            onMouseEnter={e => {
-              e.currentTarget.style.color = 'var(--cyan)'
-              e.currentTarget.style.borderColor = 'var(--cyan)'
-            }}
-            onMouseLeave={e => {
-              e.currentTarget.style.color = 'var(--muted)'
-              e.currentTarget.style.borderColor = 'var(--border)'
-            }}>
-              {link}
-            </a>
-          ))}
+          
+          {links.map((link) => (
+  <a
+    key={link.name}
+    href={link.url}
+    target="_blank"
+    rel="noopener noreferrer"
+    style={{
+      fontFamily: 'Space Mono, monospace',
+      fontSize: '0.65rem',
+      letterSpacing: '0.1em',
+      textTransform: 'uppercase',
+      padding: '8px 14px',
+      border: '1px solid var(--border)',
+      borderRadius: '4px',
+      color: 'var(--muted)',
+      textDecoration: 'none',
+      transition: 'all 0.25s ease',
+      cursor: 'pointer'
+    }}
+    onMouseEnter={(e) => {
+      e.target.style.color = 'white';
+      e.target.style.borderColor = 'white';
+    }}
+    onMouseLeave={(e) => {
+      e.target.style.color = 'var(--muted)';
+      e.target.style.borderColor = 'var(--border)';
+    }}
+  >
+    {link.name}
+  </a>
+))}
         </motion.div>
       </div>
     </section>

@@ -10,14 +10,14 @@ const mernStack = [
 ]
 
 const skills = [
-  { name: 'Mongoose ODM', color: '#43d675' },
-  { name: 'React Hooks', color: '#61dafb' },
-  { name: 'Redux Toolkit', color: '#764abc' },
-  { name: 'REST APIs', color: '#00f5ff' },
-  { name: 'JWT / OAuth', color: '#ff6b6b' },
+  { name: ' Next.js', color: '#43d675' },
+  { name: 'Supabase', color: '#61dafb' },
+  { name: 'Redis', color: '#764abc' },
+  { name: 'BullMQ', color: '#00f5ff' },
+  { name: 'JWT / OAuth 2.0', color: '#ff6b6b' },
   { name: 'Socket.io', color: '#f39c12' },
-  { name: 'Tailwind CSS', color: '#06b6d4' },
-  { name: 'Axios', color: '#0080ff' },
+  { name: 'Playwright', color: '#06b6d4' },
+  { name: 'Cheerio', color: '#0080ff' },
   { name: 'Docker', color: '#2496ed' },
   { name: 'Git / GitHub', color: '#f05032' },
   { name: 'Zod Validation', color: '#68a063' },

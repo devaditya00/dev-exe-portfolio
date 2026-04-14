@@ -132,9 +132,9 @@ const About = () => {
             gap: '0.8rem',
           }}>
             {[
-              { num: '10+', label: 'Projects' },
-              { num: '2+', label: 'Years Exp' },
-              { num: '∞', label: 'Coffee' },
+              { num: '3+', label: 'Projects' },
+              { num: '7+', label: 'Months Exp' },
+              { num: 'Interested in', label: 'Real World Problem' },
             ].map((stat) => (
               <div key={stat.label} style={{
                 textAlign: 'center',
