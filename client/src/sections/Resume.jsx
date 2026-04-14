@@ -19,9 +19,9 @@ const experiences = [
 
 const education = [
   {
-    degree: 'B.Tech Computer Science',
-    school: 'Your University',
-    period: '2021 - 2025',
+    degree: 'B.Tech Computer Science and Engineering',
+    school: 'Madan Mohan Malaviya University of Technology',
+    period: '2024 - 2028',
     desc: 'Web Development, Machine Learning, DBMS, Data Structures.',
   },
 ]
